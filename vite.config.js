@@ -20,5 +20,11 @@ export default defineConfig({
         alias: {
             ziggy: path.resolve('vendor/tightenco/ziggy/dist/vue.es.js')
         }
+    },
+    server: {
+        host: '0.0.0.0',
+        hmr: {
+            host: 'localhost'
+        }
     }
 });
