@@ -1,6 +1,7 @@
 <template>
+    <Filters :filters="filters" />
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        <Box v-for="listing in listings" :key="listing.id">
+        <Box v-for="listing in listings.data" :key="listing.id">
             <div>
                 <Link :href="route('listing.show', listing.id)">
                     <Price :price="listing.price" class="text-2xl font-bold" />
@@ -15,6 +16,9 @@
                 <Link :href="route('listing.destroy', listing.id)" method="delete" as="button">Delete</Link>
             </div>
         </Box>
+        <div v-if="listings.data.length" class="w-full flex justify-center mt-4 mb-4">
+    <Pagination :links="listings.links"/>
+    </div>
     </div>
 </template>
 
@@ -24,8 +28,11 @@
     import ListingAddress from '@/Components/ListingAddress.vue';
     import Box from '@/Components/UI/Box.vue';
     import Price from '@/Components/Price.vue';
+    import Pagination from '@/Components/UI/Pagination.vue';
+    import Filters from '@/Pages/Index/Components/Filters.vue';
 
     defineProps({
-        listings: Array
+        listings: Object,
+        filters: Object
     })
 </script>
