@@ -9,12 +9,6 @@
                     <ListingAddress :listing="listing" class="text-gray-50" />
                 </Link>
             </div>
-            <div>
-                <Link :href="route('listing.edit', listing.id)">Edit</Link>
-            </div>
-            <div>
-                <Link :href="route('listing.destroy', listing.id)" method="delete" as="button">Delete</Link>
-            </div>
         </Box>
         <div v-if="listings.data.length" class="w-full flex justify-center mt-4 mb-4">
     <Pagination :links="listings.links"/>
